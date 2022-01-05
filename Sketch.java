@@ -17,6 +17,8 @@ public class Sketch extends PApplet {
   public float redSpeed = (float) (254 / 60);
   public float blueSpeed = (float) (135 / 60);
   public float greenSpeed = (float) (20 / 60);
+  public float starOpacity = 255;
+  public float starSpeed = 255 / 60;
 
 	
   /**
@@ -32,7 +34,6 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(210, 255, 173);
   }
 
   /**
@@ -90,10 +91,41 @@ public class Sketch extends PApplet {
     //circleX = origin(point x) + cos0 * 50(length of the x value)
     //circleY = origin(point y) + cos0 * 50(length of the y value)
     
-    susX = 200 + cos((float) angle) * 50;
-    susY = 200 + sin((float) angle) * 50;
+    susX = (width/2) + cos((float) angle) * 300;
+    susY = height + sin((float) angle) * 300;
 
     angle += (float) 0.1;
+
+      //stars
+      
+
+      noStroke();
+      starOpacity += starSpeed;
+
+      if(starOpacity < 0 || starOpacity > 255){
+        starSpeed *= -1;
+      }
+
+      fill(255, 255, 255, starOpacity);
+      ellipse(100, 100, scale / 10, scale / 10);
+      ellipse(125, 200, scale / 10, scale / 10);
+      ellipse(150, 170, scale / 10, scale / 10);
+      ellipse(200, 100, scale / 10, scale / 10);
+      ellipse(300, 223, scale / 10, scale / 10);
+      ellipse(220, 200, scale / 10, scale / 10);
+      ellipse(310, 160, scale / 10, scale / 10);
+      ellipse(240, 2300, scale / 10, scale / 10);
+      ellipse(130, 230, scale / 10, scale / 10);
+      
+      
+      
+
+      //window
+      fill(240);
+      rect(0, 0, width, height / 8);
+      rect(0, 350, width, height / 8);
+      rect(0, 0, width / 8, height);
+      rect(350, 0, width / 8, height);
 
     
   
