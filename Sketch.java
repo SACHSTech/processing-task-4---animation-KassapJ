@@ -91,7 +91,7 @@ public class Sketch extends PApplet {
     //circleY = origin(point y) + cos0 * 50(length of the y value)
     
     susX = 200 + cos((float) angle) * 50;
-    susY = 200 + cos((float) angle) * 50;
+    susY = 200 + sin((float) angle) * 50;
 
     angle += (float) 0.1;
 
